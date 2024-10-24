@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BLL;
 
-namespace CreacionProyecto
+static void main()
 {
-    internal class programa
+    foreach (var item in BLL_Roles.Listar())
     {
 
+        Console.WriteLine(item.IdRol+" "+ item.Rol);
     }
+
+
 }
+
+main();
