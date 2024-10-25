@@ -14,7 +14,7 @@ using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.Net;
 
-
+//formulario admninistracion de clientes listo. 
 
 namespace UI
 {
