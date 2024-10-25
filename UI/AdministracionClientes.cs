@@ -8,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EL;
-using BLL;
+using BLL;  
 using Utility;
 using System.Text.RegularExpressions;
 using System.Net.Mail;
 using System.Net;
 
+// formulario AdministracionClientes listo
 namespace UI
 {
     public partial class AdministracionClientes : Form
