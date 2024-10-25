@@ -109,7 +109,7 @@ namespace Utility
             int smtpPort = 587;
             string smtpServer = "smtp-relay.brevo.com";
             string smtpUsername = "mendozajader18@gmail.com";
-            string smtpPassword = "xsmtpsib-e7da7280649156057f3d1e631b5f63cd809faf3114180284da4025311e34f274-7gnVzYvkqscHZmC8";
+            string smtpPassword = "";
 
             try
             {
