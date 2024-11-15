@@ -25,6 +25,7 @@ namespace DAL
                 Registro.NombreProveedor = Entidad.NombreProveedor;
                 Registro.Numero = Entidad.Numero;
                 Registro.Correo = Entidad.Correo;
+                Registro.Direccion = Entidad.Direccion;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
                 return bd.SaveChanges() > 0;
@@ -64,18 +65,25 @@ namespace DAL
         }
 
 
-        public static bool ValidarNumero(string Numero, int IdRegistro)
+        public static bool ValidarNumeroProv(string Numero, int IdRegistro)
         {
             using (BDInventario bd = new())
             {
                 return bd.Proveedores.Where(a => a.Numero == Numero && a.IdProveedor != IdRegistro && a.Activo == true).Count() > 0;
             }
         }
-        public static bool ValidarCorreo(string Email, int IdRegistro)
+        public static bool ValidarCorreoProv(string Email, int IdRegistro)
         {
             using (BDInventario bd = new())
             {
                 return bd.Proveedores.Where(a => a.Correo == Email && a.IdProveedor != IdRegistro && a.Activo == true).Count() > 0;
+            }
+        }
+        public static bool ValidarDireccionProv(string Direccion, int IdRegistro)
+        {
+            using (BDInventario bd = new())
+            {
+                return bd.Proveedores.Where(a => a.Direccion == Direccion && a.IdProveedor != IdRegistro && a.Activo == true).Count() > 0;
             }
         }
 

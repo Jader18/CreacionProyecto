@@ -25,6 +25,9 @@ namespace EL
         [MaxLength(200), Required]
         public string Correo { get; set; }
 
+        [MaxLength(200), Required]
+        public string Direccion { get; set; }
+
         [Required]
         public bool Activo { get; set; }
 
@@ -40,6 +43,7 @@ namespace EL
             NombreProveedor= string.Empty;
             Numero= string.Empty;
             Correo= string.Empty;
+            Direccion = string.Empty;
 
         }
 

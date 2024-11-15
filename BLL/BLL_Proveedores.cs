@@ -34,14 +34,19 @@ namespace BLL
         {
             return DAL_Proveedores.Lista(Activo);
         }
-        public static bool ValidarNumero(string Numero, int IdRegistro)
+        public static bool ValidarCorreoProv(string Email, int IdRegistro)
         {
-            return DAL_Proveedores.ValidarNumero(Numero, IdRegistro);
+            return DAL_Proveedores.ValidarCorreoProv(Email, IdRegistro);
         }
-        public static bool ValidarCorreo(string Email, int IdRegistro)
+        public static bool ValidarNumeroProv(string Numero, int IdRegistro)
         {
-            return DAL_Proveedores.ValidarCorreo(Email, IdRegistro);
+            return DAL_Proveedores.ValidarNumeroProv(Numero, IdRegistro);
         }
+        /*public static bool ValidarDireccionProv(string Email, int IdRegistro)
+        {
+            return DAL_Proveedores.ValidarDireccionProv(Email, IdRegistro);
+        }*/
+
 
 
 

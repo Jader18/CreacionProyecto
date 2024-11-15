@@ -100,9 +100,9 @@ namespace UI
             if (txtUser.Text == "admin" && txtPassword.Text == "admin123")
             {
                 //nextForm indica que el sig formulario (administracionClientes sera lo proximo que vea el usuario)
-                Form nextForm = new AdministracionClientes(); 
+                Form nextForm = new MainMenu();
                 nextForm.Show();
-                this.Hide(); 
+                this.Hide();
             }
             else
             {

@@ -90,7 +90,7 @@ CREATE TABLE Productos(
 IdProducto INT PRIMARY KEY IDENTITY(1,1),
 Descripcion VARCHAR(200),
 --agregar cantidad de cada item
-Cantidad INT NOT NULL,
+Cantidad VARCHAR(8) NOT NULL,
 Activo BIT DEFAULT(1) NOT NULL,
 IdUsuarioRegistra INT NOT NULL,
 FechaRegistro DATETIME NOT NULL,

@@ -23,6 +23,7 @@ namespace DAL
                 var Registro = bd.Productos.Find(Entidad.IdProducto);
 
                 Registro.Descripcion = Entidad.Descripcion;
+                Registro.Cantidad = Entidad.Cantidad;
                 Registro.IdUsuarioActualiza = Entidad.IdUsuarioActualiza;
                 Registro.FechaActualizacion = Entidad.FechaActualizacion;
                 return bd.SaveChanges() > 0;
@@ -61,13 +62,20 @@ namespace DAL
             }
         }
 
-        public static bool ValidarCorreo(string productName, int IdRegistro)
+        public static bool ValidarDescripcionProduct(string Descripcion, int IdRegistro)
         {
             using (BDInventario bd = new())
             {
-                return bd.Productos.Where(a => a.Descripcion == productName && a.IdProducto != IdRegistro && a.Activo == true).Count() > 0;
+                return bd.Productos.Where(a => a.Descripcion == Descripcion && a.IdProducto != IdRegistro && a.Activo == true).Count() > 0;
             }
         }
 
+        public static bool ValidarCantidadProduct(string Cantidad, int IdRegistro)
+        {
+            using (BDInventario bd = new())
+            {
+                return bd.Productos.Where(a => a.Cantidad == Cantidad && a.IdProducto != IdRegistro && a.Activo == true).Count() > 0;
+            }
+        }
     }
 }

@@ -40,13 +40,15 @@ namespace BLL
             return DAL_Productos.Lista(Activo);
 
         }
-
-
-        public static bool ValidarCorreo(string productName, int IdRegistro)
+        public static bool ValidarDescripcionProduct(string Descripcion, int IdRegistro)
         {
-            return DAL_Productos.ValidarCorreo(productName, IdRegistro);
+            return DAL_Productos.ValidarDescripcionProduct(Descripcion, IdRegistro);
 
         }
-
+        public static bool ValidarCantidad(string Cantidad, int IdRegistro)
+        {
+            return DAL_Productos.ValidarCantidadProduct(Cantidad, IdRegistro);
+        }
     }
 }
+

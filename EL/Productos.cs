@@ -19,11 +19,10 @@ namespace EL
         [MaxLength(200), Required]
         public string Descripcion { get; set; }
 
-        [Required]
-
-        public int Cantidad { get; set; }
-        [Required]
-
+        [MaxLength(8), Required]
+        public string Cantidad { get; set; }
+        
+ 
         public bool Activo { get; set; }
 
         [Required]
@@ -36,6 +35,7 @@ namespace EL
         public Productos()
         {
             Descripcion = string.Empty;
+            Cantidad = string.Empty;
         }
 
     }
