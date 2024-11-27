@@ -46,6 +46,7 @@ namespace UI
                 GridProductos.Columns[5].Visible = false;
                 GridProductos.Columns[6].Visible = false;
                 GridProductos.Columns[7].Visible = false;
+                GridProductos.Columns[7].Visible = false;
                 LimpiarCampos();
 
             }
@@ -92,6 +93,7 @@ namespace UI
                 Productos Entidad = new Productos();
                 Entidad.Descripcion = txtProducto.Text;
                 Entidad.Cantidad = txtCantidad.Text;
+
 
                 if (IdRegistro > 0)
                 {
@@ -148,6 +150,7 @@ namespace UI
                 IdRegistro = Convert.ToInt32(GridProductos.CurrentRow.Cells[0].Value);
                 txtProducto.Text = GridProductos.CurrentRow.Cells[1].Value.ToString();
                 txtCantidad.Text = GridProductos.CurrentRow.Cells[2].Value.ToString();
+
             }
             catch (Exception Error)
             {

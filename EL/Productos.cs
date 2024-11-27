@@ -21,8 +21,8 @@ namespace EL
 
         [MaxLength(8), Required]
         public string Cantidad { get; set; }
-        
- 
+
+
         public bool Activo { get; set; }
 
         [Required]

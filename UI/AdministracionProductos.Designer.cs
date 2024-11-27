@@ -59,7 +59,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 100);
+            label2.Location = new Point(11, 101);
             label2.Name = "label2";
             label2.Size = new Size(58, 15);
             label2.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // txtCantidad
             // 
-            txtCantidad.Location = new Point(12, 118);
+            txtCantidad.Location = new Point(11, 119);
             txtCantidad.Name = "txtCantidad";
             txtCantidad.Size = new Size(101, 23);
             txtCantidad.TabIndex = 3;

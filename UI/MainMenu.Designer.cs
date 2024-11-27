@@ -50,7 +50,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.DimGray;
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(37, 113);
             label1.Name = "label1";
             label1.Size = new Size(181, 18);
@@ -61,7 +61,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.DimGray;
+            label2.ForeColor = Color.Black;
             label2.Location = new Point(749, 113);
             label2.Name = "label2";
             label2.Size = new Size(214, 18);
@@ -72,7 +72,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.ForeColor = Color.DimGray;
+            label3.ForeColor = Color.Black;
             label3.Location = new Point(404, 113);
             label3.Name = "label3";
             label3.Size = new Size(194, 18);
@@ -83,7 +83,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Century Gothic", 21.75F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            label4.ForeColor = Color.DimGray;
+            label4.ForeColor = Color.Black;
             label4.Location = new Point(416, 9);
             label4.Name = "label4";
             label4.Size = new Size(180, 36);
@@ -138,7 +138,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.ForeColor = Color.DimGray;
+            label5.ForeColor = Color.Black;
             label5.Location = new Point(28, 301);
             label5.Name = "label5";
             label5.Size = new Size(206, 18);
@@ -160,7 +160,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(15, 15, 15);
+            BackColor = SystemColors.Menu;
             ClientSize = new Size(996, 473);
             Controls.Add(pictureBox5);
             Controls.Add(label5);

@@ -66,7 +66,7 @@
             // 
             // txtUser
             // 
-            txtUser.BackColor = Color.Black;
+            txtUser.BackColor = SystemColors.ActiveBorder;
             txtUser.BorderStyle = BorderStyle.None;
             txtUser.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtUser.ForeColor = Color.DimGray;
@@ -80,7 +80,7 @@
             // 
             // txtPassword
             // 
-            txtPassword.BackColor = SystemColors.ActiveCaptionText;
+            txtPassword.BackColor = SystemColors.ActiveBorder;
             txtPassword.BorderStyle = BorderStyle.None;
             txtPassword.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtPassword.ForeColor = Color.DimGray;
@@ -145,7 +145,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(15, 15, 15);
+            BackColor = SystemColors.Menu;
             ClientSize = new Size(780, 330);
             Controls.Add(btnMinimize);
             Controls.Add(btnClose);
@@ -156,7 +156,6 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Login";
-            Opacity = 0.8D;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             MouseDown += Login_MouseDown;

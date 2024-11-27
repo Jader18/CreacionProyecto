@@ -33,7 +33,7 @@ namespace UI
             if (txtUser.Text == "Usuario")
             {
                 txtUser.Text = "";
-                txtUser.ForeColor = Color.LightGray;
+                txtUser.ForeColor = Color.Black;
             }
         }
 
@@ -51,7 +51,7 @@ namespace UI
             if (txtPassword.Text == "Contraseña")
             {
                 txtPassword.Text = "";
-                txtPassword.ForeColor = Color.DimGray;
+                txtPassword.ForeColor = Color.Black;
                 txtPassword.UseSystemPasswordChar = true;
 
             }
