@@ -111,3 +111,9 @@ FechaRegistro DATETIME NOT NULL,
 IdUsuarioActualiza INT NULL,
 FechaActualizacion DATETIME NULL
 )
+
+
+-- Modificar la tabla Productos para agregar la relación con Proveedores
+ALTER TABLE Productos
+ADD IdProveedor INT FOREIGN KEY REFERENCES Proveedores(IdProveedor) NOT NULL;
+

@@ -39,11 +39,13 @@
             pictureBox4 = new PictureBox();
             label5 = new Label();
             pictureBox5 = new PictureBox();
+            pictureBox6 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -156,12 +158,23 @@
             pictureBox5.TabStop = false;
             pictureBox5.Click += pictureBox5_Click;
             // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(28, 289);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(227, 126);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 10;
+            pictureBox6.TabStop = false;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Menu;
             ClientSize = new Size(996, 473);
+            Controls.Add(pictureBox6);
             Controls.Add(pictureBox5);
             Controls.Add(label5);
             Controls.Add(pictureBox4);
@@ -181,6 +194,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -197,5 +211,6 @@
         private PictureBox pictureBox4;
         private Label label5;
         private PictureBox pictureBox5;
+        private PictureBox pictureBox6;
     }
 }

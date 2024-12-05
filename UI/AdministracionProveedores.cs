@@ -35,7 +35,7 @@ namespace UI
             {
                 //listo el orden de la entidad
                 gridProveedores.DataSource = BLL_Proveedores.Lista();
-                gridProveedores.Columns[0].Visible = false;
+                gridProveedores.Columns[0].HeaderText = "ID Proveedor";
                 gridProveedores.Columns[1].HeaderText = "Nombre del Proveedor";
                 gridProveedores.Columns[2].HeaderText = "Número";
                 gridProveedores.Columns[3].HeaderText = "Correo";

@@ -35,11 +35,12 @@ namespace BLL
             return DAL_Productos.Registro(Entidad);
 
         }
-        public static List<Productos> Lista(bool Activo = true)
+        public static List<ProductosConProveedor> ListaConProveedor(bool Activo = true)
         {
             return DAL_Productos.Lista(Activo);
 
         }
+
         public static bool ValidarDescripcionProduct(string Descripcion, int IdRegistro)
         {
             return DAL_Productos.ValidarDescripcionProduct(Descripcion, IdRegistro);
