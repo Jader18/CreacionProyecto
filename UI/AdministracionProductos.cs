@@ -25,7 +25,15 @@ namespace UI
         public AdministracionProductos()
         {
             InitializeComponent();
+            CargarProveedoresCM();
+            LimpiarCampos();
+
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.ControlBox = true;
         }
+
 
         private void AdministracionProductos_Load(object sender, EventArgs e)
         {
@@ -74,38 +82,34 @@ namespace UI
         {
             if (string.IsNullOrEmpty(txtProducto.Text) || string.IsNullOrWhiteSpace(txtProducto.Text))
             {
-                MessageBox.Show("Ingrese la descripción del producto");
+                MessageBox.Show("Ingrese la descripción del producto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (txtProducto.Text.Length > 200)
             {
-                MessageBox.Show("El campo descripción del producto debe ser menor a 200 caracteres");
+                MessageBox.Show("El campo descripción del producto debe ser menor a 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrEmpty(txtCantidad.Text) || string.IsNullOrWhiteSpace(txtCantidad.Text))
             {
-                MessageBox.Show("Ingrese Cantidad");
+                MessageBox.Show("Ingrese Cantidad", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (txtCantidad.Text.Length > 7 || txtCantidad.Text.Length > 7)
             {
-                MessageBox.Show("Ingrese una cantidad válida.");
+                MessageBox.Show("Ingrese una cantidad válida.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (BLL_Productos.ValidarDescripcionProduct(txtProducto.Text, IdRegistro))
             {
-                MessageBox.Show("Ya se encuentra un producto registrado con la misma descripción.");
+                MessageBox.Show("Ya se encuentra un producto registrado con la misma descripción.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtIDproveedor.Text) || !int.TryParse(txtIDproveedor.Text, out int idProveedor))
+            if (comboBox1.SelectedValue == null)
             {
-                MessageBox.Show("Por favor, ingrese un ID de proveedor válido.");
+                MessageBox.Show("Debe seleccionar un proveedor.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
-
             }
-            
-
-
 
             return true;
         }
@@ -113,17 +117,12 @@ namespace UI
         {
             if (validarFormulario())
             {
-                // Validar si el ID del proveedor es válido
-                if (string.IsNullOrWhiteSpace(txtIDproveedor.Text) || !int.TryParse(txtIDproveedor.Text, out int idProveedor))
-                {
-                    MessageBox.Show("Por favor, ingrese un ID de proveedor válido.");
-                    return;
-                }
 
                 Productos Entidad = new Productos();
                 Entidad.Descripcion = txtProducto.Text;
                 Entidad.Cantidad = txtCantidad.Text;
-                Entidad.IdProveedor = idProveedor; // Asignamos el ID del proveedor
+                Entidad.IdProveedor = Convert.ToInt32(comboBox1.SelectedValue);
+                //Entidad.IdProveedor = idProveedor; // Asignamos el ID del proveedor
 
                 if (IdRegistro > 0)
                 {
@@ -132,11 +131,11 @@ namespace UI
                     Entidad.IdUsuarioActualiza = IdUsuarioSesion;
                     if (BLL_Productos.Update(Entidad))
                     {
-                        MessageBox.Show("Registro actualizado con exito");
+                        MessageBox.Show("Registro actualizado con exito", "",MessageBoxButtons.OK, MessageBoxIcon.Information);
                         cargarGrid();
                         return;
                     }
-                    MessageBox.Show("El Registro no fue actualizado con exito");
+                    MessageBox.Show("El Registro no fue actualizado con exito", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -144,11 +143,11 @@ namespace UI
                 Entidad.IdUsuarioRegistra = IdUsuarioSesion;
                 if (BLL_Productos.Insert(Entidad).IdProducto > 0)
                 {
-                    MessageBox.Show("Registro agregado con exito");
+                    MessageBox.Show("Registro agregado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cargarGrid();
                     return;
                 }
-                MessageBox.Show("El Registro no fue agregado con exito");
+                MessageBox.Show("El Registro no fue agregado con exito", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -203,7 +202,7 @@ namespace UI
                 txtCantidad.Text = GridProductos.CurrentRow.Cells[2].Value.ToString();
 
                 // Cargar el ID del proveedor (suponiendo que es la columna 3)
-                txtIDproveedor.Text = GridProductos.CurrentRow.Cells[3].Value.ToString();
+                comboBox1.SelectedValue = GridProductos.CurrentRow.Cells[3].Value;
             }
             catch (Exception ex)
             {
@@ -211,12 +210,26 @@ namespace UI
             }
         }
 
+        private void CargarProveedoresCM()
+        {
+            try
+            {
+                List<Proveedores> listaProveedores = BLL_Proveedores.Lista();
+                comboBox1.DataSource = listaProveedores;
+                comboBox1.DisplayMember = "NombreProveedor";
+                comboBox1.ValueMember = "IdProveedor";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los Proveedores" + ex.Message);
+            }
+        }
         private void LimpiarCampos()
         {
             IdRegistro = 0;
             txtProducto.Text = string.Empty;
             txtCantidad.Text = string.Empty;
-            txtIDproveedor.Text = string.Empty;
+            comboBox1.SelectedIndex = -1;
 
         }
 

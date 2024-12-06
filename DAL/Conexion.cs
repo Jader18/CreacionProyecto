@@ -6,7 +6,7 @@ namespace DAL
     public static class Conexion
     {
         private static string NombreAplicacion = "GeneradorCapas";
-        private static string Servidor = @"MENDOZAII";
+        private static string Servidor = @"DESKTOP-K873GQR";
         private static string Usuario = "";
         private static string Password = "";
         private static string BaseDatos = "Inventario";

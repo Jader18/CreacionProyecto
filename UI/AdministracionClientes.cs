@@ -24,6 +24,10 @@ namespace UI
         public AdministracionClientes()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.ControlBox = true;
         }
 
         private void AdministracionClientes_Load(object sender, EventArgs e)
@@ -60,47 +64,47 @@ namespace UI
         {
             if (string.IsNullOrEmpty(txtNombreCliente.Text) || string.IsNullOrWhiteSpace(txtNombreCliente.Text))
             {
-                MessageBox.Show("Ingrese el nombre del cliente");
+                MessageBox.Show("Ingrese el nombre del cliente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (txtNombreCliente.Text.Length > 200)
             {
-                MessageBox.Show("El campo nombre del cliente debe ser menor a 200 caracteres");
+                MessageBox.Show("El campo nombre del cliente debe ser menor a 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrEmpty(txtNumeroTelefono.Text) || string.IsNullOrWhiteSpace(txtNumeroTelefono.Text))
             {
-                MessageBox.Show("Ingrese el número del cliente");
+                MessageBox.Show("Ingrese el número del cliente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (txtNumeroTelefono.Text.Length < 8 || txtNumeroTelefono.Text.Length > 8)
             {
-                MessageBox.Show("Ingrese un número de teléfono válido.");
+                MessageBox.Show("Ingrese un número de teléfono válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (BLL_Clientes.ValidarNumero(txtNumeroTelefono.Text, IdRegistro))
             {
-                MessageBox.Show("El número de teléfono ya se encuentra registrado.");
+                MessageBox.Show("El número de teléfono ya se encuentra registrado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrWhiteSpace(txtCorreo.Text))
             {
-                MessageBox.Show("Ingrese el correo del cliente");
+                MessageBox.Show("Ingrese el correo del cliente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (!(txtCorreo.Text.Length < 200))
             {
-                MessageBox.Show("El campo correo debe ser menor a 200 caracteres");
+                MessageBox.Show("El campo correo debe ser menor a 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (!General.ValidateEmail(txtCorreo.Text))
             {
-                MessageBox.Show("Ingrese un correo válido");
+                MessageBox.Show("Ingrese un correo válido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (BLL_Clientes.ValidarCorreo(txtCorreo.Text, IdRegistro))
             {
-                MessageBox.Show("El Correo ya se encuentra registrado.");
+                MessageBox.Show("El Correo ya se encuentra registrado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -122,11 +126,11 @@ namespace UI
                     Entidad.IdUsuarioActualiza = IdUsuarioSesion;
                     if (BLL_Clientes.Update(Entidad))
                     {
-                        MessageBox.Show("Registro actualizado con exito");
+                        MessageBox.Show("Registro actualizado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         cargarGrid();
                         return;
                     }
-                    MessageBox.Show("El Registro no fue actualizado con exito");
+                    MessageBox.Show("El Registro no fue actualizado con exito", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -134,11 +138,11 @@ namespace UI
                 Entidad.IdUsuarioRegistra = IdUsuarioSesion;
                 if (BLL_Clientes.Insert(Entidad).IdCliente > 0)
                 {
-                    MessageBox.Show("Registro agregado con exito");
+                    MessageBox.Show("Registro agregado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cargarGrid();
                     return;
                 }
-                MessageBox.Show("El Registro no fue agregado con exito");
+                MessageBox.Show("El Registro no fue agregado con exito", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -151,11 +155,11 @@ namespace UI
                 entidad.IdUsuarioActualiza = IdUsuarioSesion;
                 if (BLL_Clientes.Anular(entidad))
                 {
-                    MessageBox.Show("Registro anulado con exito");
+                    MessageBox.Show("Registro anulado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cargarGrid();
                     return;
                 }
-                MessageBox.Show("El Registro no fue anulado con exito");
+                MessageBox.Show("El Registro no fue anulado con exito", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             catch (Exception Error)

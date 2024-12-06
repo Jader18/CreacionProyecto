@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdministracionProductos));
             label1 = new Label();
             txtProducto = new TextBox();
             label2 = new Label();
@@ -37,8 +38,8 @@
             button3 = new Button();
             GridProductos = new DataGridView();
             label3 = new Label();
-            txtIDproveedor = new TextBox();
             label4 = new Label();
+            comboBox1 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)GridProductos).BeginInit();
             SuspendLayout();
             // 
@@ -124,28 +125,29 @@
             label3.TabIndex = 8;
             label3.Text = "Listado de Productos:";
             // 
-            // txtIDproveedor
-            // 
-            txtIDproveedor.Location = new Point(143, 119);
-            txtIDproveedor.Name = "txtIDproveedor";
-            txtIDproveedor.Size = new Size(101, 23);
-            txtIDproveedor.TabIndex = 10;
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(143, 101);
+            label4.Location = new Point(271, 101);
             label4.Name = "label4";
-            label4.Size = new Size(78, 15);
+            label4.Size = new Size(64, 15);
             label4.TabIndex = 9;
-            label4.Text = "ID Proveedor:";
+            label4.Text = "Proveedor:";
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(271, 119);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(101, 23);
+            comboBox1.TabIndex = 11;
             // 
             // AdministracionProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(452, 473);
-            Controls.Add(txtIDproveedor);
+            Controls.Add(comboBox1);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(GridProductos);
@@ -156,6 +158,7 @@
             Controls.Add(label2);
             Controls.Add(txtProducto);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AdministracionProductos";
             Text = "AdministracionProductos";
             Load += AdministracionProductos_Load;
@@ -175,7 +178,7 @@
         private Button button3;
         private DataGridView GridProductos;
         private Label label3;
-        private TextBox txtIDproveedor;
         private Label label4;
+        private ComboBox comboBox1;
     }
 }

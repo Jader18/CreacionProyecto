@@ -20,6 +20,10 @@ namespace UI
         public AdministracionProveedores()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.ControlBox = true;
         }
 
         private void AdministracionProveedores_Load(object sender, EventArgs e)
@@ -57,52 +61,52 @@ namespace UI
         {
             if (string.IsNullOrEmpty(txtNombreProveedor.Text) || string.IsNullOrWhiteSpace(txtNombreProveedor.Text))
             {
-                MessageBox.Show("Ingrese el nombre del Proveedor");
+                MessageBox.Show("Ingrese el nombre del Proveedor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (txtNombreProveedor.Text.Length > 200)
             {
-                MessageBox.Show("El campo nombre del Proveedor debe ser menor a 200 caracteres");
+                MessageBox.Show("El campo nombre del Proveedor debe ser menor a 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrEmpty(txtNumeroProveedor.Text) || string.IsNullOrWhiteSpace(txtNumeroProveedor.Text))
             {
-                MessageBox.Show("Ingrese el número del Proveedor");
+                MessageBox.Show("Ingrese el número del Proveedor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (txtNumeroProveedor.Text.Length < 8 || txtNumeroProveedor.Text.Length < 8)
             {
-                MessageBox.Show("Ingrese un número de teléfono válido.");
+                MessageBox.Show("Ingrese un número de teléfono válido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (BLL_Proveedores.ValidarNumeroProv(txtNumeroProveedor.Text, IdRegistro))
             {
-                MessageBox.Show("El número de teléfono ya se encuentra registrado.");
+                MessageBox.Show("El número de teléfono ya se encuentra registrado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrEmpty(txtCorreoProveedor.Text) || string.IsNullOrWhiteSpace(txtCorreoProveedor.Text))
             {
-                MessageBox.Show("Ingrese el correo del Proveedor");
+                MessageBox.Show("Ingrese el correo del Proveedor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (!(txtCorreoProveedor.Text.Length < 200))
             {
-                MessageBox.Show("El campo correo debe ser menor a 200 caracteres");
+                MessageBox.Show("El campo correo debe ser menor a 200 caracteres", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (!General.ValidateEmail(txtCorreoProveedor.Text))
             {
-                MessageBox.Show("Ingrese un correo válido");
+                MessageBox.Show("Ingrese un correo válido", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (BLL_Proveedores.ValidarCorreoProv(txtCorreoProveedor.Text, IdRegistro))
             {
-                MessageBox.Show("El Correo ya se encuentra registrado.");
+                MessageBox.Show("El Correo ya se encuentra registrado.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (string.IsNullOrEmpty(txtDireccionProveedor.Text) || string.IsNullOrWhiteSpace(txtDireccionProveedor.Text))
             {
-                MessageBox.Show("Ingrese la direccion del Proveedor");
+                MessageBox.Show("Ingrese la direccion del Proveedor", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -125,11 +129,11 @@ namespace UI
                     Entidad.IdUsuarioActualiza = IdUsuarioSesion;
                     if (BLL_Proveedores.Update(Entidad))
                     {
-                        MessageBox.Show("Registro actualizado con exito");
+                        MessageBox.Show("Registro actualizado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         cargarGrid();
                         return;
                     }
-                    MessageBox.Show("El Registro no fue actualizado con exito");
+                    MessageBox.Show("El Registro no fue actualizado con exito", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -137,11 +141,11 @@ namespace UI
                 Entidad.IdUsuarioRegistra = IdUsuarioSesion;
                 if (BLL_Proveedores.Insert(Entidad).IdProveedor > 0)
                 {
-                    MessageBox.Show("Registro agregado con exito");
+                    MessageBox.Show("Registro agregado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cargarGrid();
                     return;
                 }
-                MessageBox.Show("El Registro no fue agregado con exito");
+                MessageBox.Show("El Registro no fue agregado con exito", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
         }
@@ -154,11 +158,11 @@ namespace UI
                 entidad.IdUsuarioActualiza = IdUsuarioSesion;
                 if (BLL_Proveedores.Anular(entidad))
                 {
-                    MessageBox.Show("Registro anulado con exito");
+                    MessageBox.Show("Registro anulado con exito", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     cargarGrid();
                     return;
                 }
-                MessageBox.Show("El Registro no fue anulado con exito");
+                MessageBox.Show("El Registro no fue anulado con exito", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             catch (Exception Error)
